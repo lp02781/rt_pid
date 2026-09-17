@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>rt_pid</name>
+  <version>1.0.0</version>
+  <description>
+    A simple PID controller split across two processes: a PREEMPT_RT real-time
+    control loop and a ROS 2 bridge node, communicating over POSIX shared memory.
+  </description>
+  <maintainer email="mfikih@movensys.com">mfikih</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Only the bridge node needs ROS; rt_pid_loop is plain POSIX C++. -->
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+
+  <exec_depend>ros2launch</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
